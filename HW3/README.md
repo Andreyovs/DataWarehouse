@@ -141,3 +141,14 @@ S       uccess! The configuration is valid.
         Apply complete! Resources: 8 added, 0 changed, 0 destroyed. 
 
         Outputs:
+
+
+(base) dev@cd-dev-001:~/Documents/Otus/airbyte_lab/airbyte_lab$ yc resource-manager cloud add-access-binding cloud-andreyovs     --role compute.images.user     --subject system:allAuthenticatedUsers
+        done (3s)
+        effective_deltas:
+        - action: ADD
+            access_binding:
+            role_id: compute.images.user
+            subject:
+                id: allAuthenticatedUsers
+                type: system
