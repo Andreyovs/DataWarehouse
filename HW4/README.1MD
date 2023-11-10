@@ -1,0 +1,83 @@
+(base) dev@cd-dev-001:~/Documents/Otus/airbyte_lab/airbyte_lab$ dbt debug
+        13:29:50  Running with dbt=1.4.0
+        dbt version: 1.4.0
+        python version: 3.11.5
+        python path: /home/dev/anaconda3/bin/python
+        os info: Linux-6.2.0-35-generic-x86_64-with-glibc2.35
+        Using profiles.yml file at /home/dev/Documents/Otus/airbyte_lab/airbyte_lab/profiles.yml
+        Using dbt_project.yml file at /home/dev/Documents/Otus/airbyte_lab/airbyte_lab/dbt_project.yml
+
+        Configuration:
+        profiles.yml file [OK found and valid]
+        dbt_project.yml file [OK found and valid]
+
+        Required dependencies:
+        - git [OK found]
+
+        Connection:
+        driver: None
+        host: rc1b-8mnr49ev5qbjjngb.mdb.yandexcloud.net
+        port: 8443
+        user: admin
+        schema: default
+        retries: 1
+        database_engine: None
+        cluster_mode: False
+        secure: True
+        verify: False
+        connect_timeout: 10
+        send_receive_timeout: 300
+        sync_request_timeout: 5
+        compress_block_size: 1048576
+        compression: 
+        check_exchange: True
+        custom_settings: None
+        use_lw_deletes: False
+        Connection test: [OK connection ok]
+
+        All checks passed!
+(base) dev@cd-dev-001:~/Documents/Otus/airbyte_lab/airbyte_lab$ dbt build
+        13:30:01  Running with dbt=1.4.0
+        13:30:01  Unable to do partial parsing because saved manifest not found. Starting full parse.
+        13:30:02  Found 3 models, 13 tests, 0 snapshots, 0 analyses, 323 macros, 0 operations, 0 seed files, 0 sources, 0 exposures, 0 metrics
+        13:30:02  
+        13:30:04  Concurrency: 1 threads (target='dev')
+        13:30:04  
+        13:30:04  1 of 16 START sql table model default.general_costs_facts ...................... [RUN]
+        13:30:05  1 of 16 OK created sql table model default.general_costs_facts ................. [OK in 1.27s]
+        13:30:05  2 of 16 START sql table model default.general_sites ............................ [RUN]
+        13:30:06  2 of 16 OK created sql table model default.general_sites ....................... [OK in 0.75s]
+        13:30:06  3 of 16 START sql table model default.general_traffic .......................... [RUN]
+        13:30:07  3 of 16 OK created sql table model default.general_traffic ..................... [OK in 0.87s]
+        13:30:07  4 of 16 START test not_null_general_costs_facts_clicks ......................... [RUN]
+        13:30:07  4 of 16 PASS not_null_general_costs_facts_clicks ............................... [PASS in 0.10s]
+        13:30:07  5 of 16 START test not_null_general_costs_facts_cost ........................... [RUN]
+        13:30:07  5 of 16 PASS not_null_general_costs_facts_cost ................................. [PASS in 0.06s]
+        13:30:07  6 of 16 START test not_null_general_costs_facts_sites_id ....................... [RUN]
+        13:30:07  6 of 16 PASS not_null_general_costs_facts_sites_id ............................. [PASS in 0.07s]
+        13:30:07  7 of 16 START test not_null_general_costs_facts_traffic_id ..................... [RUN]
+        13:30:07  7 of 16 PASS not_null_general_costs_facts_traffic_id ........................... [PASS in 0.08s]
+        13:30:07  8 of 16 START test not_null_general_sites_id ................................... [RUN]
+        13:30:07  8 of 16 PASS not_null_general_sites_id ......................................... [PASS in 0.09s]
+        13:30:07  9 of 16 START test relationships_general_costs_facts_sites_id__id__ref_general_sites_  [RUN]
+        13:30:07  9 of 16 PASS relationships_general_costs_facts_sites_id__id__ref_general_sites_  [PASS in 0.07s]
+        13:30:07  10 of 16 START test unique_general_sites_id .................................... [RUN]
+        13:30:07  10 of 16 PASS unique_general_sites_id .......................................... [PASS in 0.12s]
+        13:30:07  11 of 16 START test accepted_values_general_traffic_grouping__Direct__Organic_Search__Paid_Search__Referral__Social___Other___Email__Display__Social_Network  [RUN]
+        13:30:07  11 of 16 PASS accepted_values_general_traffic_grouping__Direct__Organic_Search__Paid_Search__Referral__Social___Other___Email__Display__Social_Network  [PASS in 0.07s]
+        13:30:07  12 of 16 START test not_null_general_traffic_id ................................ [RUN]
+        13:30:07  12 of 16 PASS not_null_general_traffic_id ...................................... [PASS in 0.07s]
+        13:30:07  13 of 16 START test not_null_general_traffic_traffic_hash ...................... [RUN]
+        13:30:08  13 of 16 PASS not_null_general_traffic_traffic_hash ............................ [PASS in 0.16s]
+        13:30:08  14 of 16 START test relationships_general_costs_facts_traffic_id__id__ref_general_traffic_  [RUN]
+        13:30:08  14 of 16 PASS relationships_general_costs_facts_traffic_id__id__ref_general_traffic_  [PASS in 0.07s]
+        13:30:08  15 of 16 START test unique_general_traffic_id .................................. [RUN]
+        13:30:08  15 of 16 PASS unique_general_traffic_id ........................................ [PASS in 0.05s]
+        13:30:08  16 of 16 START test unique_general_traffic_traffic_hash ........................ [RUN]
+        13:30:08  16 of 16 PASS unique_general_traffic_traffic_hash .............................. [PASS in 0.40s]
+        13:30:08  
+        13:30:08  Finished running 3 table models, 13 tests in 0 hours 0 minutes and 6.17 seconds (6.17s).
+        13:30:08  
+        13:30:08  Completed successfully
+        13:30:08  
+        13:30:08  Done. PASS=16 WARN=0 ERROR=0 SKIP=0 TOTAL=16
