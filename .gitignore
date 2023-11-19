@@ -4,3 +4,6 @@
 *.lk
 *.zip
 dbt-env/
+.idea/
+airflow/
+logs/
